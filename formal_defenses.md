@@ -1,0 +1,2 @@
+## Formal Defenses
+  In preparation to post this paper, I asked an engineer acquintance for feed back, and my responses to his feedback form the core of the .txt of the above name.  I felt that what I had to say was important enough that to have formal, thought out, pre-written defenses, rather than hot in moment responses that could bury my observations, would be the smart thing to do.  I stand by the paper, and I stand by the defenses.  
