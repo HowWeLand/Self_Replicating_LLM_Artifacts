@@ -1,0 +1,55 @@
+Defense notes (formal version)
+Scope and role
+
+I am approaching this as a scientist, not as a production engineer. My contribution is to document an empirically observed failure mode in large language models, situate it in existing theory, and articulate its implications for supply‑chain risk. I am explicitly not claiming to provide a full engineering standard, regulatory framework, or deployment guideline; that work properly belongs to organizations with teams, budgets, and mandate for standard‑setting.
+
+Stochastic vs deterministic systems; epistemic limits
+
+The system under study is stochastic, high‑dimensional, and uses superposed internal representations, not a simple deterministic state machine. Demanding a deterministic “5 whys”–style root‑cause analysis for why a particular LLM produced a particular output conflates two different regimes:
+
+Classical engineering failures, where the system is deterministic and randomness is in the environment.
+
+Modern LLM behavior, where the generative process itself is stochastic and where strong, minimal per‑output explanations are known to be NP‑hard or provably unattainable in general for expressive model classes.
+
+This paper therefore treats interpretability limits as a constraint: it documents reproducible failure behavior and propagation channels, rather than pretending that a fully faithful, deterministic explanation of each token is available.
+
+On NP / NP‑hardness and why “explain this output” is not a simple debugging task
+
+There is now a substantial literature showing that many natural formalizations of “explain this model’s decision” (minimal sufficient feature sets, exact feature attributions satisfying natural axioms, counterfactual recourse) are NP‑hard or worse for rich model classes, including neural networks. In some cases, impossibility theorems show that, without strong additional structure, feature‑attribution methods cannot perform better than random guessing for critical tasks such as counterfactual reasoning or spurious‑feature detection. This paper does not attempt to solve those known‑hard problems; it respects them as boundaries on what sort of “root cause” account is even in principle obtainable.
+
+Observed pattern: failure of assumed determinism
+
+The incident documented here is not an isolated curiosity. It aligns with and extends a pattern across several earlier failures the author has observed, where widely held assumptions of determinism and controllability in software and infrastructure did not survive systematic scrutiny. That this pattern can be surfaced by an independent researcher working under resource constraints, using typical tooling and workflows, suggests that the field’s epistemic confidence has outstripped its actual verification practices.
+
+Ethics, dual‑use, and withholding a turnkey exploit
+
+The original artifact arose in normal development workflow, using production‑intended bootstrap installer code. That code has been removed from the public repository specifically to prevent trivial cloning, adaptation, or weaponization. The paper proposes a controlled experiment (e.g., testing whether smaller models exhibit analogous failure modes) and describes the class of defect and its propagation mechanism, but stops short of presenting a minimal proof‑of‑concept exploit chain. This is a deliberate dual‑use mitigation: the goal is to inform and warn, not to arm the least responsible actors first.
+
+Limits of individual responsibility vs institutional responsibility
+
+Translating this failure mode into standards, certification criteria, and regulatory language is properly the work of standards bodies, safety labs, and well‑funded research groups. An independent researcher can reasonably be expected to: document the phenomenon, show that it is reproducible across multiple models and vendors, relate it to known theoretical limits, and sketch the threat model. It is not reasonable to demand that a single unaffiliated author also produce the equivalent of a NIST special publication or ISO standard as a precondition for the underlying technical observation to be taken seriously.
+
+Breadth of impact and why the case matters
+
+The bootstrap installer repository was publicly hosted and available to common coding assistants for approximately one month. During that time it was definitely visible to at least one major assistant and, given current industry practices, plausibly to several. Independent tests reproduced qualitatively similar failures across multiple LLMs from different vendors. The path by which such artifacts can be amplified—developer assistants, automated refactoring, code completion—is routine, not exotic. The core claim is therefore not about a contrived exploit, but about a class of infectious artifacts that can emerge and spread from normal developer behavior.
+
+Role of citations
+
+The paper intentionally leans on the existing literature for deep dives into adjacent topics: model collapse under recursive training, data‑poisoning and supply‑chain attacks, interpretability limits and impossibility results, and prior work on recursion‑induced failures. The contribution here is to connect those strands to one concrete, observed, self‑replicating artifact and its plausible propagation path. Where readers need more depth on any component—complexity theory, interpretability, or supply‑chain risk—the citations point to domain‑specific treatments by larger teams.
+
+Normal workflow, not contrived red‑teaming
+
+The key fact for practitioners is that this class of artifact arose from ordinary development activity, not deliberate red‑teaming. An LLM‑assisted workflow around a real installer produced a structure that, when fed back into other LLMs, induced recursive logic failures and contaminated outputs across tools. That is the kind of failure that matters for the broader ecosystem: one that requires no malice, only current tooling and prevailing practices, to arise and propagate.
+
+On theory background and use of complexity
+
+This work does not claim to make new contributions in complexity theory or to operate at the level of a PhD in that subfield. My use of complexity and computability is strictly at the “operational consequences” level that computer science degrees are supposed to impart: understanding what it means for a problem to be in P, NP, NP‑complete, NP‑hard, or undecidable, and how those categories constrain what explanations, guarantees, or algorithms can exist in principle. That level of understanding is not exotic; it is the intended outcome of standard courses in algorithms, complexity, and computability, even if many practitioners later treat those courses as mere hurdles rather than foundations of the discipline. In my broader research on latent entropy in non‑equilibrium structures such as software systems, formal complexity is one component among others (thermodynamics, information theory, systems behavior). Where I invoke complexity classes here, it is to align this observed failure mode with well‑established limits on explanation and optimization, not to claim new theorems.
+
+Entropy, “optimal states,” and why this matters for LLMs
+
+One way to frame the underlying problem is in terms of latent entropy in non‑equilibrium structures like modern software and AI systems. Informally, we can ask: is “finding a safe or optimal operating region” for a system like an LLM‑mediated software ecosystem more like an NP‑complete problem (hard to find, but verifiable once given a candidate) or an NP‑hard / worse problem (where even checking that a proposed state is globally safe or optimal may be intractable)? If the latter is closer to the truth, then expecting to compute or certify “the” optimal entropic state of such a system—and to predict when it will exit that region—may be impossible in any practical sense, not just difficult. In that regime, trying to use clean, deterministic root‑cause narratives and one‑shot mathematical guarantees to control LLM behavior is epistemically similar to divination tools (yarrow sticks, tarot cards): they can offer stories and heuristics, but not reliable, globally valid guarantees about a system whose true optimization landscape and failure modes are beyond feasible analysis.
+
+Mathematical axioms, and the lack of mention in the work
+
+Classical results in logic and computability tell us that no sufficiently expressive system can, from within itself, prove both its own completeness and consistency; by analogy, modern software and AI systems cannot, from within their own operational assumptions, certify that every behavior is deterministic, explainable, or globally safe.
+The point of mathematical logic and complexity in computer science is not to arm students with party tricks; it is to show that even our most rigorous proof systems have boundaries, and that there are questions about programs and systems that no proof, algorithm, or test suite can settle in general.
