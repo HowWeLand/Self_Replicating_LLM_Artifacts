@@ -37,3 +37,6 @@ My responsibility is to the people who will rely on these systems and cannot aff
 ## License
 
 This work is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). See the `LICENSE` file for details.
+
+If this research helped you and you want to say thanks, you can toss a few bucks toward my “buy Sneakers, the superior 90s hacker movie” fund:
+https://paypal.me/JMyintJr
