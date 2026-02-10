@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18582001.svg)](https://doi.org/10.5281/zenodo.18582001)
+
 # Self_Replicating_LLM_Artifacts
 Research note on a self‑replicating LLM failure mode discovered in a real-world shell bootstrap installer, and its implications for code-assistant supply chains.
 
@@ -34,6 +36,26 @@ My responsibility is to the people who will rely on these systems and cannot aff
 - `self-replicating_llm_artifacts.pdf` – Compiled PDF for easier reading.
 - (Future) Experimental code and scripts for reproducing and probing the behavior in open‑weights models.
 
+## How to Cite
+
+If you use this research or the "Logical Prion" framework in your own work, please cite it as follows:
+
+**APA:**
+Myint Jr., J. D. (2026). *Self-Replicating LLM Artifacts & Accidental Supply-Chain Contamination*. Zenodo. https://doi.org/10.5281/zenodo.18582001
+
+**BibTeX:**
+```
+latex
+@misc{myint2026logical,
+  author    = {Myint Jr., James Duncan},
+  title     = {Self-Replicating LLM Artifacts \& Accidental Supply-Chain Contamination},
+  year      = {2026},
+  month     = {January},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.18582001},
+  url       = {https://doi.org/10.5281/zenodo.18582001}
+}
+```
 ## License
 
 This work is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). See the `LICENSE` file for details.
