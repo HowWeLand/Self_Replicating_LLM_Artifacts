@@ -67,4 +67,4 @@ Great changes are coming
 to deadworld, my son...
 waves of maggots
 over oceans of rot.
-Father Shellbut "John Dies at the End"
+Father Shellnut "John Dies at the End"
