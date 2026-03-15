@@ -68,3 +68,4 @@ to deadworld, my son...
 waves of maggots
 over oceans of rot.
 Father Shellnut "John Dies at the End"
+RIP Angus Scrimm, you were everyone's scary horror grandpa and are missed
