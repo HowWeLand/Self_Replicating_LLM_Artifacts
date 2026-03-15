@@ -62,3 +62,9 @@ This work is licensed under the Creative Commons Attribution 4.0 International L
 
 If this research helped you and you want to say thanks, you can toss a few bucks toward my “buy Sneakers, the superior 90s hacker movie” fund:
 https://paypal.me/JMyintJr
+
+Great changes are coming
+to deadworld, my son...
+waves of maggots
+over oceans of rot.
+Father Shellbut "John Dies at the End"
